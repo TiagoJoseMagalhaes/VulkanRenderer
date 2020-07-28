@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.14)
 
 project(VK_Renderer VERSION 0.0.1)
 
+find_package(Vulkan REQUIRED)
+add_subdirectory(ThirdParty/glfw)
+add_subdirectory(ThirdParty/glm)
+
 # MSVC Configurations
 set(warnings "/W4 /WX /EHsc")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd26812")
@@ -23,3 +27,7 @@ target_precompile_headers(${CMAKE_PROJECT_NAME} PUBLIC Engine/Core/Core.hpp PUBL
 
 
 set_property(TARGET ${CMAKE_PROJECT_NAME} PROPERTY CXX_STANDARD 17)
+
+target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan)
+target_link_libraries(${PROJECT_NAME} glm)
+target_link_libraries(${PROJECT_NAME} glfw)
