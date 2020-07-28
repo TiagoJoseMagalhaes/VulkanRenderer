@@ -20,14 +20,10 @@ add_compile_definitions(WIN32_LEAN_AND_MEAN)
 
 add_executable(${CMAKE_PROJECT_NAME} Renderer/main.cpp ${SRCS})
 
-target_precompile_headers(${CMAKE_PROJECT_NAME} PUBLIC Engine/Core/Core.hpp PUBLIC
-												PUBLIC Engine/Core/Platform/platform.hpp
-												PUBLIC Engine/Core/Renderer/renderer.hpp
-												PUBLIC Engine/Core/Common/common.hpp)
 
+set_property(TARGET ${CMAKE_PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 
-set_property(TARGET ${CMAKE_PROJECT_NAME} PROPERTY CXX_STANDARD 17)
-
+target_include_directories(${PROJECT_NAME} PUBLIC ${Vulkan_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan)
 target_link_libraries(${PROJECT_NAME} glm)
 target_link_libraries(${PROJECT_NAME} glfw)
