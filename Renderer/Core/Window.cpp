@@ -22,11 +22,6 @@ namespace VKR
         return this->is_open;
     }
     
-    void Window::ShouldClose()
-    {
-        this->is_open = !glfwWindowShouldClose(window_handle);
-    }
-    
     void Window::CreateWindow()
     {
         glfwInit();// NOTE(Tiago):  Initializes the GLFW library
@@ -36,6 +31,8 @@ namespace VKR
         // NOTE(Tiago): In order to able to interact with a window from another thread we need to create the window on that thread. Since we want to have window event pools be independent from application framerate, we need to create the window in a thread and use that thread to poll its events.
         std::thread window_thread([this](){
                                       this->window_handle = glfwCreateWindow(width, height, name.c_str(), nullptr, nullptr); // NOTE(Tiago): Create the GLFW window
+                                      
+                                      // NOTE(Tiago):  This section will infinitely poll window events and proccess them.
                                       while(this->IsOpen())
                                       {
                                           this->PollEvents();
@@ -46,7 +43,7 @@ namespace VKR
     
     void Window::PollEvents()
     {
-        this->ShouldClose();
+        this->is_open = !glfwWindowShouldClose(window_handle);// NOTE(Tiago): Checks if the user asked to close the window
         glfwPollEvents();
     }
     

@@ -27,8 +27,6 @@ namespace VKR
         bool IsOpen();
         
         private:
-        /*Sets weather or not the window is open*/
-        void ShouldClose();
         /*Handles creating the GLFW window regardless of what constructor was used*/
         void CreateWindow();
         /*Polls Window Events*/

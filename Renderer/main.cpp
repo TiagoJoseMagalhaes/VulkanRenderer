@@ -35,8 +35,10 @@ int main()
     */
     
     VKR::Window window = {800,600,"Something"};
+    VKR::Window window2 = {800,600,"Something2"};
+    VKR::Window window3 = {800,600,"Something3"};
     
-    while(window.IsOpen())
+    while(window2.IsOpen())
     {
     }
     
