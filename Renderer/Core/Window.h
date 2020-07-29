@@ -24,6 +24,7 @@ namespace VKR
         public:
         Window(uint32_t width, uint32_t height, const std::string& window_name);
         Window(uint32_t width, uint32_t height, std::string&& window_name);
+        ~Window();
         bool IsOpen();
         
         private:

@@ -17,6 +17,12 @@ namespace VKR
         this->CreateWindow();
     }
     
+    Window::~Window()
+    {
+        glfwDestroyWindow(this->window_handle);// NOTE(Tiago): Destroys the window resources
+        glfwTerminate();// NOTE(Tiago): Terminate the GLFW library
+    }
+    
     bool Window::IsOpen()
     {
         return this->is_open;

@@ -15,30 +15,11 @@
 using namespace VKR;
 
 int main()
-{
-    /*
-    glfwInit();
+{    
+    Window window = {800,600,"Something"};
+    Window window2 = {800,600,"Something"};
     
-    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-    
-    GLFWwindow* window = glfwCreateWindow(800, 600, "Vulkan window", nullptr, nullptr);
-    
-    while (!glfwWindowShouldClose(window))
-    {
-        glfwPollEvents();
-    }
-    
-    glfwDestroyWindow(window);
-    
-    glfwTerminate();
-    */
-    
-    VKR::Window window = {800,600,"Something"};
-    VKR::Window window2 = {800,600,"Something2"};
-    VKR::Window window3 = {800,600,"Something3"};
-    
-    while(window2.IsOpen())
+    while(window.IsOpen())
     {
     }
     
