@@ -10,8 +10,13 @@
 #include <stdexcept>
 #include <cstdlib>
 
+#include "Core/Window.h"
+
+using namespace VKR;
+
 int main()
 {
+    /*
     glfwInit();
     
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
@@ -27,6 +32,13 @@ int main()
     glfwDestroyWindow(window);
     
     glfwTerminate();
+    */
+    
+    VKR::Window window = {800,600,"Something"};
+    
+    while(window.IsOpen())
+    {
+    }
     
     return 0;
 }
